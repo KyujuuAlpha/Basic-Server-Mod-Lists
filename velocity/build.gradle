@@ -1,0 +1,32 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+archivesBaseName = "${archivesBaseName}-velocity"
+
+repositories {
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+}
+
+dependencies {
+    implementation project(':common')
+
+    compileOnly "com.velocitypowered:velocity-api:${project.ext.velocity_version}"
+    annotationProcessor "com.velocitypowered:velocity-api:${project.ext.velocity_version}"
+}
+
+tasks {
+    build {
+        dependsOn.add(shadowJar)
+
+        doLast {
+            copy {
+                from "${buildDir}/libs/${shadowJar.archiveFile.asFile.get().name}"
+                into "${rootProject.buildDir}/libs/"
+                rename { 
+                    String fileName -> "${archivesBaseName}-${version}.jar"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+plugins {
+    id 'java-library'
+    id 'net.kyori.blossom' version '1.3.0'
+}
+
+archivesBaseName = "${archivesBaseName}-common"
+
+blossom {
+    replaceTokenIn("src/main/java/com/troiryan/modverify/common/Constants.java")
+    replaceToken '{project_id}', project.ext.id
+    replaceToken '{project_name}', project.ext.name
+    replaceToken '{description}', project.description
+    replaceToken '{version}', project.version
+    replaceToken '{author}', project.ext.author
+}
