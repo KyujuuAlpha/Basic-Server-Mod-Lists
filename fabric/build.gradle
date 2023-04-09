@@ -77,17 +77,17 @@ tasks {
 		project.configurations.implementation.canBeResolved = true
         configurations = [project.configurations.implementation]
     }
-	
-	build {
-		dependsOn.add(shadowJar)
 
+	remapJar {
+		dependsOn(shadowJar)
+		input.set(shadowJar.archiveFile)
+	}
+
+	build {
 		doLast {
 			copy {
-				from "${buildDir}/libs/${shadowJar.archiveFile.asFile.get().name}"
+				from "${buildDir}/libs/${remapJar.archiveFile.asFile.get().name}"
 				into "${rootProject.buildDir}/libs/"
-				rename { 
-					String fileName -> "${archivesBaseName}-${version}.jar"
-				}
 			}
 		}
 	}

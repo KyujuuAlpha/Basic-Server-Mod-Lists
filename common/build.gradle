@@ -5,6 +5,10 @@ plugins {
 
 archivesBaseName = "${archivesBaseName}-common"
 
+dependencies {
+    compileOnly "io.netty:netty-buffer:4.1.91.Final"
+}
+
 blossom {
     replaceTokenIn("src/main/java/com/troiryan/modverify/common/Constants.java")
     replaceToken '{project_id}', project.ext.id

@@ -15,10 +15,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"com.troiryan.HackyModVerifyClient"
+			"com.troiryan.modverify.fabric.BasicServerModListsClient"
 		],
 		"server": [
-			"com.troiryan.HackyModVerifyServer"
+			"com.troiryan.modverify.fabric.BasicServerModListsServer"
 		]
 	},
 	"depends": {
