@@ -35,9 +35,9 @@ public class BasicServerModListsServer implements DedicatedServerModInitializer 
 					HashSet<Mod> modSet = BasicServerModLists.decodeModListPacket(buf);
 					HashSet<Mod> missingMods = BasicServerModLists.getMissingMods(modSet);
 					if (!missingMods.isEmpty()) {
-						String kickMessage = "Missing mods:\n";
+						String kickMessage = "Missing mods:";
 						for (Mod mod : missingMods)
-							kickMessage += " - " + mod.getModID() + " version " + mod.getVersion() + "\n";
+							kickMessage += "\n - " + mod.getModID() + " version " + mod.getVersion();
 
 						handler.disconnect(Text.literal(kickMessage));
 					}

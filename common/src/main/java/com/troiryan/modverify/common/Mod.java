@@ -4,8 +4,9 @@ public class Mod {
     
     private String modId, version, combinedString;
 
+    // keep only alphanumeric, dash, underscore, plus, and dots
     private static String getFilteredString(String str) {
-        return str.replaceAll("[^a-z0-9/._-]", "");
+        return str.replaceAll("[^\\w\\-\\+.]", "");
     }
 
     public Mod(String modId, String version) {

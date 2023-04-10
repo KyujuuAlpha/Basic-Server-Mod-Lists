@@ -91,7 +91,7 @@ public final class BasicServerModListsVelocity {
 			if (playerPacketCache.containsKey(event.getUsername()))
 				playerPacketCache.remove(event.getUsername());
 	
-			logger.info("Cached player " + event.getUsername() + "'s' mod list");
+			logger.info("Cached player " + event.getUsername() + "'s mod list");
 			playerPacketCache.put(event.getUsername(), new ModListPacketFrame(buf));
 		});
 	}
