@@ -3,22 +3,22 @@ plugins {
 }
 
 subprojects {
-	apply plugin: 'java'
+    apply plugin: 'java'
     apply plugin: 'maven-publish'
 
-	archivesBaseName = project.ext.id
-	description = project.description
-	version = project.version
-	group = project.group
+    archivesBaseName = project.ext.id
+    description = project.description
+    version = project.version
+    group = project.group
 
-	sourceCompatibility = JavaVersion.VERSION_11
-	targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 
-	tasks.withType(JavaCompile) {
+    tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
     }
 
-	repositories {
+    repositories {
         mavenCentral()
     }
 }
